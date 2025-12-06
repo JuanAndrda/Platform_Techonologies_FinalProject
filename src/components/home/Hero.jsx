@@ -1,17 +1,41 @@
 import { motion } from 'framer-motion';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { FaChevronDown } from 'react-icons/fa';
 import { fadeInUp, fadeInDown, textReveal } from '../../utils/animations';
 
 const Hero = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const offsetPosition = element.offsetTop - 80;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
+    // If we're on the home page, scroll to the section
+    if (location.pathname === '/') {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const offsetPosition = element.offsetTop - 80;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    } else {
+      // If we're on a different page, navigate to home first, then scroll
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const offsetPosition = element.offsetTop - 80;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
     }
+  };
+
+  const handleNavigate = (path) => {
+    navigate(path);
   };
 
   return (
@@ -82,7 +106,7 @@ const Hero = () => {
             animate="visible"
             className="text-xl md:text-2xl lg:text-3xl text-accent-blue font-heading uppercase tracking-wider mb-8"
           >
-            2ND YEAR COMPUTER SCIENCE STUDENT
+            2ND YEAR INFORMATION TECHNOLOGY STUDENT
           </motion.p>
 
           {/* Description */}
@@ -109,7 +133,7 @@ const Hero = () => {
             <motion.button
               whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(74, 158, 255, 0.5)" }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => scrollToSection('projects')}
+              onClick={() => handleNavigate('/projects')}
               className="px-8 py-4 bg-accent-blue text-white font-heading font-semibold uppercase tracking-wider rounded-md transition-all duration-300"
             >
               View My Work
@@ -118,7 +142,7 @@ const Hero = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => scrollToSection('contact')}
+              onClick={() => handleNavigate('/contact')}
               className="px-8 py-4 border-2 border-accent-blue text-accent-blue font-heading font-semibold uppercase tracking-wider rounded-md hover:bg-accent-blue hover:text-white transition-all duration-300"
             >
               Contact Me

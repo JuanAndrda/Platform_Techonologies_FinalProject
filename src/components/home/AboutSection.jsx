@@ -1,10 +1,9 @@
 import { motion } from 'framer-motion';
-import { FaCode, FaLaptopCode, FaGithub, FaCoffee, FaMapMarkerAlt } from 'react-icons/fa';
-import { fadeInUp, staggerContainer, slideInLeft, slideInRight } from '../../utils/animations';
-import Timeline from './Timeline';
-import Stats from './Stats';
+import { Link } from 'react-router-dom';
+import { FaArrowRight, FaCode } from 'react-icons/fa';
+import { fadeInUp, slideInLeft, slideInRight } from '../../utils/animations';
 
-const About = () => {
+const AboutSection = () => {
   return (
     <section id="about" className="min-h-screen py-20 bg-dark-bg">
       <div className="section-container">
@@ -22,9 +21,9 @@ const About = () => {
           <div className="w-20 h-1 bg-accent-blue mx-auto" />
         </motion.div>
 
-        {/* Main Content */}
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
-          {/* Left Column - Text */}
+        {/* Compact Overview - Only 2-3 paragraphs */}
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          {/* Left: Brief text */}
           <motion.div
             variants={slideInLeft}
             initial="hidden"
@@ -43,25 +42,24 @@ const About = () => {
 
             <p className="text-light-secondary text-lg leading-relaxed">
               My journey in programming began with Java, where I developed a strong
-              foundation in Object-Oriented Programming and Data Structures. I've
-              built multiple banking system projects that demonstrate my understanding
-              of complex software architecture and problem-solving skills.
+              foundation in OOP and Data Structures through multiple banking projects.
+              Now I'm expanding into modern web development with React and Tailwind CSS.
             </p>
 
-            <p className="text-light-secondary text-lg leading-relaxed">
-              Currently, I'm expanding my skillset into web development, learning
-              modern technologies like React, and exploring the exciting world of
-              full-stack development. I'm always eager to learn new technologies
-              and take on challenging projects.
-            </p>
-
-            <div className="flex items-center space-x-2 text-accent-blue">
-              <FaMapMarkerAlt />
-              <span className="text-light-secondary">Leon, Iloilo, Philippines</span>
-            </div>
+            {/* CTA to detailed About page */}
+            <Link to="/about">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="mt-4 px-6 py-3 bg-accent-blue text-white font-heading font-semibold uppercase tracking-wider rounded-md hover:bg-opacity-90 transition-all duration-300 flex items-center space-x-2"
+              >
+                <span>Learn More About Me</span>
+                <FaArrowRight />
+              </motion.button>
+            </Link>
           </motion.div>
 
-          {/* Right Column - Image/Illustration Placeholder */}
+          {/* Right: Image placeholder */}
           <motion.div
             variants={slideInRight}
             initial="hidden"
@@ -70,13 +68,12 @@ const About = () => {
             className="relative"
           >
             <div className="relative aspect-square max-w-md mx-auto">
-              {/* Placeholder for profile image */}
               <motion.div
                 whileHover={{ scale: 1.05 }}
-                className="w-full h-full rounded-2xl bg-gradient-to-br from-accent-blue to-purple-600 flex items-center justify-center"
+                className="w-full h-full rounded-2xl bg-gradient-to-br from-accent-blue to-purple-600 flex items-center justify-center overflow-hidden"
               >
-                <div className="text-center">
-                  <FaCode className="text-8xl text-white mb-4 mx-auto" />
+                <div className="text-center p-8">
+                  <FaCode className="text-8xl text-white opacity-50 mb-4 mx-auto" />
                   <p className="text-white text-xl font-heading">Profile Photo</p>
                   <p className="text-light-primary text-sm mt-2">Coming Soon</p>
                 </div>
@@ -84,39 +81,21 @@ const About = () => {
 
               {/* Decorative Elements */}
               <motion.div
-                animate={{
-                  rotate: 360
-                }}
-                transition={{
-                  duration: 20,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                 className="absolute -top-4 -right-4 w-24 h-24 border-4 border-accent-blue rounded-full"
               />
               <motion.div
-                animate={{
-                  rotate: -360
-                }}
-                transition={{
-                  duration: 15,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
+                animate={{ rotate: -360 }}
+                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
                 className="absolute -bottom-4 -left-4 w-32 h-32 border-4 border-purple-600 rounded-full"
               />
             </div>
           </motion.div>
         </div>
-
-        {/* Stats Section */}
-        <Stats />
-
-        {/* Timeline Section */}
-        <Timeline />
       </div>
     </section>
   );
 };
 
-export default About;
+export default AboutSection;

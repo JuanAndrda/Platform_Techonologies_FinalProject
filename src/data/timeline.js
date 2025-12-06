@@ -1,8 +1,8 @@
 export const timeline = [
   {
     year: "2023 - Present",
-    title: "2nd Year Computer Science Student",
-    institution: "Your University Name",
+    title: "2nd Year Information Technology Student",
+    institution: "West Visayas State University",
     location: "Leon, Iloilo, Philippines",
     description: "Focusing on advanced programming concepts including Data Structures, Algorithms, Object-Oriented Programming, and Web Development technologies.",
     highlights: [
@@ -14,8 +14,8 @@ export const timeline = [
   },
   {
     year: "2022 - 2023",
-    title: "1st Year Computer Science Student",
-    institution: "Your University Name",
+    title: "1st Year Information Technology Student",
+    institution: "West Visayas State University",
     location: "Leon, Iloilo, Philippines",
     description: "Introduction to programming fundamentals, problem-solving, and computational thinking.",
     highlights: [

@@ -4,7 +4,7 @@ A modern, responsive portfolio website built with React, Vite, Tailwind CSS, and
 
 ## About
 
-This is my personal portfolio website showcasing my projects, skills, and experience as a 2nd year Computer Science student. The website features a dark theme design with smooth animations and an intuitive user interface.
+This is my personal portfolio website showcasing my projects, skills, and experience as a 2nd year Information Technology student at West Visayas State University. The website features a dark theme design with smooth animations and an intuitive user interface.
 
 ## Features
 

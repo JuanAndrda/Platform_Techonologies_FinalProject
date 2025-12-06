@@ -1,28 +1,34 @@
 import { useState, useEffect } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import { useScrollSpy } from '../../hooks/useScrollSpy';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
-  const sections = ['home', 'about', 'skills', 'projects', 'contact'];
-  const { activeSection, scrollToSection } = useScrollSpy(sections);
+  // Navigation links - UPDATED for routing
+  const navLinks = [
+    { name: 'HOME', path: '/' },
+    { name: 'ABOUT', path: '/about' },
+    { name: 'SKILLS', path: '/skills' },
+    { name: 'PROJECTS', path: '/projects' },
+    { name: 'CONTACT', path: '/contact' }
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = (sectionId) => {
-    scrollToSection(sectionId);
+  // Close mobile menu on route change
+  useEffect(() => {
     setIsMobileMenuOpen(false);
-  };
+  }, [location]);
 
   return (
     <motion.nav
@@ -30,37 +36,42 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'glass-morphism shadow-lg' : 'bg-transparent'
+        isScrolled
+          ? 'bg-dark-secondary/90 backdrop-blur-md shadow-lg border-b border-accent-blue/20'
+          : 'bg-transparent'
       }`}
     >
       <div className="section-container">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="text-2xl font-heading font-bold cursor-pointer"
-            onClick={() => scrollToSection('home')}
-          >
-            <span className="text-white">JA</span>
-            <span className="text-accent-blue">.</span>
-          </motion.div>
+          {/* Logo - Link to home */}
+          <Link to="/">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="text-2xl font-heading font-bold cursor-pointer"
+            >
+              <span className="text-white">JA</span>
+              <span className="text-accent-blue">.</span>
+            </motion.div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {sections.map((section) => (
-              <motion.button
-                key={section}
-                onClick={() => handleNavClick(section)}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                className={`text-sm font-medium uppercase tracking-wider transition-colors duration-300 ${
-                  activeSection === section
-                    ? 'text-accent-blue'
-                    : 'text-light-primary hover:text-accent-blue'
-                }`}
+            {navLinks.map((link) => (
+              <NavLink
+                key={link.path}
+                to={link.path}
+                className={({ isActive }) =>
+                  `text-sm font-medium uppercase tracking-wider transition-colors duration-300 ${
+                    isActive
+                      ? 'text-accent-blue'
+                      : 'text-light-primary hover:text-accent-blue'
+                  }`
+                }
               >
-                {section}
-              </motion.button>
+                <motion.span whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+                  {link.name}
+                </motion.span>
+              </NavLink>
             ))}
           </div>
 
@@ -85,18 +96,20 @@ const Navbar = () => {
         className="md:hidden overflow-hidden bg-dark-secondary"
       >
         <div className="flex flex-col items-center space-y-4 py-6">
-          {sections.map((section) => (
-            <button
-              key={section}
-              onClick={() => handleNavClick(section)}
-              className={`text-lg font-medium uppercase tracking-wider transition-colors duration-300 ${
-                activeSection === section
-                  ? 'text-accent-blue'
-                  : 'text-light-primary hover:text-accent-blue'
-              }`}
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.path}
+              to={link.path}
+              className={({ isActive }) =>
+                `text-lg font-medium uppercase tracking-wider transition-colors duration-300 ${
+                  isActive
+                    ? 'text-accent-blue'
+                    : 'text-light-primary hover:text-accent-blue'
+                }`
+              }
             >
-              {section}
-            </button>
+              {link.name}
+            </NavLink>
           ))}
         </div>
       </motion.div>

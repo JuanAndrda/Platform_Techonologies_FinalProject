@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { FaGithub, FaExternalLinkAlt, FaStar } from 'react-icons/fa';
 import { scaleIn } from '../../utils/animations';
 
@@ -96,16 +97,15 @@ const ProjectCard = ({ project, index }) => {
 
       {/* View Project Button */}
       <div className="px-6 pb-6">
-        <motion.a
-          href={project.githubLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          className="block w-full py-3 text-center bg-accent-blue text-white font-heading font-semibold uppercase tracking-wider rounded-md hover:bg-opacity-90 transition-all duration-300"
-        >
-          View Project →
-        </motion.a>
+        <Link to={`/projects/${project.slug}`}>
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="block w-full py-3 text-center bg-accent-blue text-white font-heading font-semibold uppercase tracking-wider rounded-md hover:bg-opacity-90 transition-all duration-300"
+          >
+            View Project →
+          </motion.button>
+        </Link>
       </div>
     </motion.div>
   );
