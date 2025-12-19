@@ -48,32 +48,22 @@ const AboutPage = () => {
 
             <div className="space-y-4 text-light-secondary text-lg leading-relaxed">
               <p>
-                I'm a 2nd year Information Technology student at West Visayas State University,
-                based in Leon, Iloilo, Philippines, with a passion for turning ideas into reality
-                through code. My journey in programming began with a curiosity about how things
-                work behind the scenes, and it has evolved into a deep commitment to crafting
-                elegant solutions to complex problems.
+                I'm a 2nd year Information Technology student at West Visayas State University
+                in Iloilo City. Originally from Leon, Iloilo, Philippines, I'm passionate about
+                turning ideas into reality through code.
               </p>
 
               <p>
-                My foundation in Information Technology started with Java, where I developed a
-                strong understanding of Object-Oriented Programming principles and Data
-                Structures. Through building multiple banking system projects, I learned the
-                importance of writing clean, maintainable, and scalable code.
+                My programming journey started with C++ in first year, then evolved to Java
+                where I built banking systems using OOP and Data Structures. With a Computer
+                major background from STVEP and STEM from Iloilo National High School, I'm now
+                expanding into modern web development with React and Tailwind CSS.
               </p>
 
               <p>
-                Currently, I'm expanding my skillset into modern web development,
-                mastering technologies like React, Tailwind CSS, and exploring the exciting
-                ecosystem of full-stack development. I believe in continuous learning and
-                staying updated with the latest industry trends and best practices.
-              </p>
-
-              <p>
-                Beyond coding, I'm passionate about problem-solving, collaborative
-                development, and creating user-centric applications that make a real
-                impact. I'm always eager to take on challenging projects that push my
-                boundaries and help me grow as a developer.
+                I believe in continuous learning and creating user-centric applications that
+                make a real impact. Always eager to take on challenging projects that help me
+                grow as a developer.
               </p>
             </div>
 
@@ -96,18 +86,16 @@ const AboutPage = () => {
             className="relative"
           >
             <div className="relative aspect-square max-w-md mx-auto">
-              {/* Profile Photo Placeholder */}
+              {/* Profile Photo */}
               <motion.div
                 whileHover={{ scale: 1.05 }}
-                className="w-full h-full rounded-2xl bg-gradient-to-br from-accent-blue to-purple-600 flex items-center justify-center overflow-hidden"
+                className="w-full h-full rounded-2xl overflow-hidden shadow-2xl"
               >
-                <div className="text-center p-8">
-                  <div className="text-9xl font-heading font-bold text-white opacity-50 mb-4">
-                    JA
-                  </div>
-                  <p className="text-white text-xl font-heading">Profile Photo</p>
-                  <p className="text-light-primary text-sm mt-2">Coming Soon</p>
-                </div>
+                <img
+                  src="/images/profile-about.jpg"
+                  alt="Juan Miguel Rashley Andrada"
+                  className="w-full h-full object-cover"
+                />
               </motion.div>
 
               {/* Decorative Elements */}

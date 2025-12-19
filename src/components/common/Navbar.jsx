@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import { throttle } from '../../utils/helpers';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -17,13 +18,18 @@ const Navbar = () => {
     { name: 'CONTACT', path: '/contact' }
   ];
 
-  useEffect(() => {
-    const handleScroll = () => {
+  // Throttled scroll handler for performance
+  const handleScroll = useCallback(
+    throttle(() => {
       setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
+    }, 100),
+    []
+  );
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [handleScroll]);
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -85,34 +91,51 @@ const Navbar = () => {
         </div>
       </div>
 
+      {/* Mobile Menu Backdrop */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm md:hidden z-40"
+            style={{ top: '80px' }}
+          />
+        )}
+      </AnimatePresence>
+
       {/* Mobile Menu */}
-      <motion.div
-        initial={{ height: 0, opacity: 0 }}
-        animate={{
-          height: isMobileMenuOpen ? 'auto' : 0,
-          opacity: isMobileMenuOpen ? 1 : 0
-        }}
-        transition={{ duration: 0.3 }}
-        className="md:hidden overflow-hidden bg-dark-secondary"
-      >
-        <div className="flex flex-col items-center space-y-4 py-6">
-          {navLinks.map((link) => (
-            <NavLink
-              key={link.path}
-              to={link.path}
-              className={({ isActive }) =>
-                `text-lg font-medium uppercase tracking-wider transition-colors duration-300 ${
-                  isActive
-                    ? 'text-accent-blue'
-                    : 'text-light-primary hover:text-accent-blue'
-                }`
-              }
-            >
-              {link.name}
-            </NavLink>
-          ))}
-        </div>
-      </motion.div>
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ type: 'tween', duration: 0.3 }}
+            className="fixed right-0 top-20 bottom-0 w-64 bg-dark-secondary border-l border-accent-blue/20 md:hidden z-50 shadow-2xl"
+          >
+            <div className="flex flex-col space-y-2 p-6">
+              {navLinks.map((link) => (
+                <NavLink
+                  key={link.path}
+                  to={link.path}
+                  className={({ isActive }) =>
+                    `text-base font-medium uppercase tracking-wider transition-all duration-300 py-3 px-4 rounded-md ${
+                      isActive
+                        ? 'text-accent-blue bg-accent-blue/10'
+                        : 'text-light-primary hover:text-accent-blue hover:bg-dark-bg'
+                    }`
+                  }
+                >
+                  {link.name}
+                </NavLink>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 };

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FaArrowRight, FaCode } from 'react-icons/fa';
+import { FaArrowRight } from 'react-icons/fa';
 import { fadeInUp, slideInLeft, slideInRight } from '../../utils/animations';
 
 const AboutSection = () => {
@@ -36,14 +36,15 @@ const AboutSection = () => {
             </h3>
 
             <p className="text-light-secondary text-lg leading-relaxed">
-              I'm a 2nd year Information Technology student at West Visayas State University,
-              based in Leon, Iloilo, Philippines, with a passion for turning ideas into reality through code.
+              I'm a 2nd year Information Technology student at West Visayas State University
+              in Iloilo City. From Leon, Iloilo, with a passion for turning ideas into reality through code.
             </p>
 
             <p className="text-light-secondary text-lg leading-relaxed">
-              My journey in programming began with Java, where I developed a strong
-              foundation in OOP and Data Structures through multiple banking projects.
-              Now I'm expanding into modern web development with React and Tailwind CSS.
+              My programming journey started with C++ in first year, then evolved to Java where
+              I built banking systems using OOP and Data Structures. With a Computer major background
+              from STVEP and STEM from Iloilo National High School, I'm now expanding into modern
+              web development with React and Tailwind CSS.
             </p>
 
             {/* CTA to detailed About page */}
@@ -59,7 +60,7 @@ const AboutSection = () => {
             </Link>
           </motion.div>
 
-          {/* Right: Image placeholder */}
+          {/* Right: Profile Image */}
           <motion.div
             variants={slideInRight}
             initial="hidden"
@@ -70,13 +71,13 @@ const AboutSection = () => {
             <div className="relative aspect-square max-w-md mx-auto">
               <motion.div
                 whileHover={{ scale: 1.05 }}
-                className="w-full h-full rounded-2xl bg-gradient-to-br from-accent-blue to-purple-600 flex items-center justify-center overflow-hidden"
+                className="w-full h-full rounded-2xl overflow-hidden shadow-2xl"
               >
-                <div className="text-center p-8">
-                  <FaCode className="text-8xl text-white opacity-50 mb-4 mx-auto" />
-                  <p className="text-white text-xl font-heading">Profile Photo</p>
-                  <p className="text-light-primary text-sm mt-2">Coming Soon</p>
-                </div>
+                <img
+                  src="/images/profile-home.jpg"
+                  alt="Juan Miguel Rashley Andrada"
+                  className="w-full h-full object-cover"
+                />
               </motion.div>
 
               {/* Decorative Elements */}

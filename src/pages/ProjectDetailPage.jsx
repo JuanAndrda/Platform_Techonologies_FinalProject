@@ -121,22 +121,32 @@ const ProjectDetailPage = () => {
           </div>
         </motion.div>
 
-        {/* Project Image/Banner Placeholder */}
+        {/* Project Image */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
           className="mb-12"
         >
-          <div className="w-full h-96 bg-gradient-to-br from-accent-blue to-purple-600 rounded-2xl flex items-center justify-center">
-            <div className="text-center">
-              <p className="text-white text-9xl font-bold opacity-20 mb-4">
-                {project.title.charAt(0)}
-              </p>
-              <p className="text-white text-xl">Project Screenshot</p>
-              <p className="text-light-primary text-sm mt-2">Coming Soon</p>
+          {project.image ? (
+            <div className="w-full h-96 rounded-2xl overflow-hidden border-2 border-dark-border hover:border-accent-blue transition-colors duration-300">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-cover"
+              />
             </div>
-          </div>
+          ) : (
+            <div className="w-full h-96 bg-gradient-to-br from-accent-blue to-purple-600 rounded-2xl flex items-center justify-center">
+              <div className="text-center">
+                <p className="text-white text-9xl font-bold opacity-20 mb-4">
+                  {project.title.charAt(0)}
+                </p>
+                <p className="text-white text-xl">Project Screenshot</p>
+                <p className="text-light-primary text-sm mt-2">Coming Soon</p>
+              </div>
+            </div>
+          )}
         </motion.div>
 
         {/* Content Grid */}

@@ -4,21 +4,21 @@ export const projects = [
     slug: "banking-system-oop",
     title: "Banking System (OOP & Data Structures)",
     description: "Comprehensive banking system demonstrating Object-Oriented Programming principles and Data Structures implementation",
-    fullDescription: "A fully functional banking system built with Java that showcases core OOP concepts including inheritance, polymorphism, encapsulation, and abstraction. This project implements various data structures for efficient account management, transaction processing, and data persistence. The system features a robust architecture with separation of concerns, utilizing design patterns like Singleton for database connections and Factory for creating different account types. It demonstrates my understanding of software architecture and best coding practices through clean, maintainable, and scalable code.",
-    image: "/projects/banking-system.png",
-    technologies: ["Java", "OOP", "Data Structures", "MySQL"],
+    fullDescription: "A command-line banking system built with Java that showcases core OOP concepts including inheritance, polymorphism, encapsulation, and abstraction. This project implements custom data structures (LinkedList, Queue) for efficient account management and transaction processing. The system features role-based authentication with Admin and Customer access levels, complete CRUD operations for customers and accounts, and real-time transaction processing using queue-based FIFO ordering. Demonstrates understanding of OOP principles and data structure implementation through clean, well-documented code.",
+    image: "/images/BankingOne.jpg",
+    technologies: ["Java", "OOP", "Data Structures", "In-Memory Storage"],
     technologiesDetail: {
       "Java": "Core language leveraging OOP principles, collections framework, and exception handling for robust application logic",
       "OOP": "Implemented inheritance hierarchies, polymorphism for account types, encapsulation for data security, and abstraction for common behaviors",
-      "Data Structures": "Custom implementations of LinkedList for transaction history, Stack for undo operations, Queue for transaction processing, and HashMap for efficient account lookup",
-      "MySQL": "Relational database for persistent storage with prepared statements to prevent SQL injection and ensure data integrity"
+      "Data Structures": "Custom implementations of LinkedList for transaction history and customer management, Queue for FIFO transaction processing, and efficient in-memory data management",
+      "In-Memory Storage": "All data stored in-memory using Java Collections (LinkedList, Queue) with no external database dependency for focused learning on data structures"
     },
     category: "Java",
     featured: true,
     date: "2024-08",
     status: "Completed",
-    problem: "Traditional banking systems often lack proper OOP implementation and efficient data structure usage, leading to maintenance issues, poor scalability, and difficulty adding new features.",
-    solution: "Designed a modular banking system with clear class hierarchies and interfaces, implementing custom data structures optimized for banking operations, and following SOLID principles for maintainability.",
+    problem: "Need to demonstrate understanding of OOP principles and custom data structure implementation in a practical, real-world scenario without the complexity of database integration.",
+    solution: "Designed an educational banking system with clear class hierarchies implementing inheritance and polymorphism, custom LinkedList and Queue data structures for transaction management, and role-based authentication for security.",
     features: [
       {
         title: "Account Management",
@@ -29,35 +29,35 @@ export const projects = [
         description: "Efficient transaction handling using queues for pending transactions and stacks for maintaining transaction history with undo capabilities"
       },
       {
-        title: "Data Persistence",
-        description: "MySQL integration with JDBC for reliable data storage, retrieval, and transaction management with proper connection pooling"
+        title: "Custom Data Structures",
+        description: "Hand-built LinkedList for managing customers and transaction histories, Queue implementation for FIFO transaction processing order"
       },
       {
-        title: "Security Features",
-        description: "Password hashing with SHA-256, session management, input validation, and transaction authorization to ensure secure banking operations"
+        title: "Authentication System",
+        description: "Role-based access control with Admin and Customer user types, password management, and session handling for secure operations"
       }
     ],
     challenges: [
       {
-        challenge: "Implementing thread-safe transaction processing to prevent race conditions when multiple users access the same account",
-        solution: "Used synchronized methods and Java's concurrent collections (ConcurrentHashMap) to ensure atomic operations and prevent data corruption"
+        challenge: "Implementing custom LinkedList and Queue data structures from scratch without using Java's built-in collections",
+        solution: "Designed and implemented generic data structure classes with proper node linking, memory management, and efficient traversal algorithms"
       },
       {
-        challenge: "Balancing OOP design principles with performance requirements, especially for large transaction histories",
-        solution: "Profiled code using JProfiler to identify bottlenecks, then optimized critical paths by implementing lazy loading and caching strategies without sacrificing design quality"
+        challenge: "Managing relationships between Customer and UserAccount entities while maintaining clean OOP design",
+        solution: "Created comprehensive documentation and implemented clear linking patterns between authentication and customer data models"
       }
     ],
     learnings: [
-      "Deep understanding of OOP design patterns and their practical applications in real-world banking scenarios",
-      "Importance of writing testable, maintainable code through proper separation of concerns and dependency injection",
-      "Database optimization techniques including indexing, query optimization, and connection pooling for improved performance",
-      "Proper exception handling strategies and error recovery mechanisms to ensure system reliability"
+      "Deep understanding of OOP principles including inheritance, polymorphism, encapsulation, and abstraction in practical applications",
+      "How to implement custom data structures from scratch and understand their performance characteristics",
+      "Importance of comprehensive code documentation and creating educational resources for complex systems",
+      "Proper input validation strategies and error handling mechanisms to ensure system reliability"
     ],
     futureImprovements: [
-      "Add REST API layer using Spring Boot for web and mobile client support",
-      "Implement microservices architecture to separate account, transaction, and notification services for better scalability",
-      "Add real-time notifications using WebSockets for instant transaction alerts",
-      "Integrate with payment gateways for external transfers and bill payments"
+      "Add database integration with MySQL or PostgreSQL for data persistence across sessions",
+      "Implement file-based data serialization for saving and loading banking data",
+      "Create a GUI using JavaFX or Swing to replace command-line interface",
+      "Add support for interest calculations on savings accounts and overdraft fees on checking accounts"
     ],
     relatedProjects: [2],
     githubLink: "https://github.com/JuanAndrda/BankingProject",
@@ -68,59 +68,59 @@ export const projects = [
     slug: "banking-system-two",
     title: "Banking System Two",
     description: "Advanced banking system implementation with enhanced features and improved architecture",
-    fullDescription: "An enhanced iteration of the banking system project that builds upon the foundation of the first version. This implementation introduces multi-account management capabilities, comprehensive transaction history tracking, and significantly improved security measures. The project demonstrates evolution in software design thinking and incorporates feedback and learnings from the initial banking system. It features a more sophisticated user interface, better error handling, and improved algorithm efficiency for transaction processing.",
-    image: "/projects/banking-system-2.png",
+    fullDescription: "An enhanced command-line banking system that builds upon the foundation of the first version with improved architecture and additional features. This implementation demonstrates refined OOP design with better abstraction layers, comprehensive documentation across 8 markdown files explaining core concepts, and Insertion Sort algorithm implementation for transaction ordering. The project showcases evolution in software design with clearer separation of concerns, enhanced validation patterns, and extensive educational documentation including detailed guides on class relationships, data structures, and transaction logic.",
+    image: "/images/BankingTwo.jpg",
     technologies: ["Java", "OOP", "Algorithms"],
     technologiesDetail: {
-      "Java": "Utilized advanced Java features including generics, lambda expressions, and stream API for cleaner and more efficient code",
-      "OOP": "Enhanced class design with better abstraction layers, interface segregation, and composition over inheritance principles",
-      "Algorithms": "Implemented sorting algorithms for transaction ordering, binary search for efficient account lookup, and graph algorithms for analyzing account relationships"
+      "Java": "Core Java with focus on collections framework, custom data structures (LinkedList, Stack, Queue), and comprehensive exception handling",
+      "OOP": "Enhanced class design with inheritance hierarchies, polymorphism for account types, encapsulation, abstraction, and clear separation of concerns across multiple packages",
+      "Algorithms": "Insertion Sort implementation for transaction ordering and sorting operations with detailed algorithm documentation"
     },
     category: "Java",
-    featured: false,
+    featured: true,
     date: "2024-09",
     status: "Completed",
-    problem: "The initial banking system lacked multi-account support, had limited transaction analysis capabilities, and needed more robust security measures for production readiness.",
-    solution: "Redesigned the architecture to support multiple accounts per user, implemented advanced algorithms for transaction analysis and fraud detection, and added comprehensive audit logging for security compliance.",
+    problem: "Need to improve upon the initial banking system with better code organization, enhanced validation, and comprehensive documentation for educational purposes.",
+    solution: "Restructured the codebase with improved package organization (models, auth, managers, utilities), implemented robust validation patterns, added Insertion Sort for data ordering, and created 8 comprehensive markdown documentation files.",
     features: [
       {
-        title: "Multi-Account Management",
-        description: "Users can create and manage multiple accounts of different types simultaneously with cross-account transfers and consolidated balance views"
+        title: "Enhanced Code Organization",
+        description: "Well-structured package hierarchy with separate packages for models, authentication, managers, and utilities for better maintainability"
       },
       {
-        title: "Advanced Transaction History",
-        description: "Comprehensive transaction tracking with filtering, sorting, search capabilities, and export functionality for financial reporting"
+        title: "Comprehensive Documentation",
+        description: "8 markdown files documenting OOP concepts, class relationships, data structures, transaction logic, exception handling, and customer-user linking"
       },
       {
-        title: "Enhanced Security",
-        description: "Two-factor authentication, transaction limits, fraud detection algorithms, and comprehensive audit logging for compliance"
+        title: "Sorting Algorithm Implementation",
+        description: "Insertion Sort algorithm for organizing transactions and account data with educational documentation explaining the implementation"
       },
       {
-        title: "Performance Optimization",
-        description: "Improved algorithms for faster transaction processing, efficient data retrieval with caching, and optimized database queries"
+        title: "Improved Validation",
+        description: "Robust input validation with ValidationPatterns and InputValidator utilities for data integrity and error prevention"
       }
     ],
     challenges: [
       {
-        challenge: "Managing complex relationships between multiple accounts while maintaining data consistency and transaction integrity",
-        solution: "Implemented database transactions with proper isolation levels and created a transaction coordinator service to handle multi-account operations atomically"
+        challenge: "Creating comprehensive documentation that effectively explains complex OOP concepts and system architecture to other learners",
+        solution: "Developed 8 detailed markdown guides covering different aspects of the system, from basic concepts to advanced implementation details"
       },
       {
-        challenge: "Detecting potentially fraudulent transactions in real-time without impacting system performance",
-        solution: "Developed a rule-based fraud detection system using efficient algorithms to analyze transaction patterns and flag suspicious activity asynchronously"
+        challenge: "Improving code organization from the first version while maintaining backward compatibility with core features",
+        solution: "Refactored into a clean package structure (auth, managers, models, utilities) with clear separation of concerns and responsibilities"
       }
     ],
     learnings: [
-      "Importance of iterative development and incorporating user feedback into subsequent versions",
-      "Advanced algorithm design and analysis for optimizing system performance under load",
-      "Security best practices including defense-in-depth strategies and secure coding principles",
-      "Database transaction management and ACID properties in practice"
+      "Importance of iterative development and refining code architecture based on lessons learned from previous versions",
+      "How to create effective technical documentation that serves as both reference material and learning resource",
+      "Implementing sorting algorithms (Insertion Sort) and understanding their practical applications",
+      "Value of organized package structure and clear naming conventions for code maintainability"
     ],
     futureImprovements: [
-      "Implement machine learning models for smarter fraud detection",
-      "Add support for international transactions with currency conversion",
-      "Create a mobile application companion for account management",
-      "Integrate blockchain technology for immutable transaction records"
+      "Add more sorting algorithms (QuickSort, MergeSort) for performance comparison",
+      "Implement additional data structures like Binary Search Trees for faster account lookups",
+      "Add file persistence to save and load banking data between program executions",
+      "Create unit tests to ensure code reliability and facilitate future refactoring"
     ],
     relatedProjects: [1],
     githubLink: "https://github.com/JuanAndrda/BankingSystemTwo",
@@ -130,60 +130,60 @@ export const projects = [
     id: 3,
     slug: "techno-hub",
     title: "Techno Hub",
-    description: "Technology-focused web platform showcasing modern web technologies and best practices",
-    fullDescription: "Techno Hub is a comprehensive technology information platform that serves as a central hub for tech enthusiasts to explore various technology topics, trends, and tutorials. Built with a focus on clean, semantic HTML, modern CSS techniques including Flexbox and Grid, and vanilla JavaScript for interactivity, this project demonstrates fundamental web development skills without relying on frameworks. The website features a responsive design that works seamlessly across all device sizes, smooth animations, and an intuitive user interface that prioritizes user experience.",
-    image: "/projects/techno-hub.png",
+    description: "Technology-focused web platform project (In Planning)",
+    fullDescription: "Techno Hub is a planned technology information platform concept designed to serve as a central hub for tech enthusiasts. The project envisions a website built with modern web technologies including HTML5, CSS3, and JavaScript. The concept focuses on creating a responsive design that would work seamlessly across all device sizes, with smooth animations and an intuitive user interface. This project represents forward-thinking planning for a comprehensive tech platform, currently in the conceptual stage with the repository initialized for future development.",
+    image: "/images/TechnoHub.jpg",
     technologies: ["HTML", "CSS", "JavaScript"],
     technologiesDetail: {
-      "HTML": "Semantic HTML5 markup with proper document structure, accessibility attributes, and SEO-friendly tags for better search engine visibility",
-      "CSS": "Modern CSS3 with Flexbox and Grid layouts, custom properties for theming, animations, transitions, and mobile-first responsive design principles",
-      "JavaScript": "Vanilla JavaScript for DOM manipulation, event handling, dynamic content loading, and interactive features without framework dependencies"
+      "HTML": "Planned semantic HTML5 markup with proper document structure and accessibility attributes",
+      "CSS": "Planned modern CSS3 implementation with Flexbox and Grid layouts, animations, and responsive design",
+      "JavaScript": "Planned vanilla JavaScript for interactivity and dynamic content features"
     },
     category: "Web Development",
-    featured: true,
+    featured: false,
     date: "2024-10",
-    status: "Completed",
-    problem: "Many technology information websites are cluttered, difficult to navigate, and not optimized for mobile devices, making it hard for users to find relevant information quickly.",
-    solution: "Created a clean, minimalist design with intuitive navigation, responsive layout that adapts to any screen size, and organized content structure that makes information easily discoverable.",
+    status: "Planning",
+    problem: "Need for a technology information platform that provides clean navigation and organized content for tech enthusiasts.",
+    solution: "Conceptualized a platform design focused on minimalist aesthetics, intuitive navigation, and responsive layout for optimal user experience.",
     features: [
       {
-        title: "Responsive Design",
-        description: "Fully responsive layout using CSS Grid and Flexbox that provides optimal viewing experience across desktop, tablet, and mobile devices"
+        title: "Planned Responsive Design",
+        description: "Concept for fully responsive layout using CSS Grid and Flexbox for optimal viewing across all devices"
       },
       {
-        title: "Interactive Components",
-        description: "Dynamic navigation menu, smooth scroll effects, interactive cards, and modal windows implemented with vanilla JavaScript"
+        title: "Planned Interactive Features",
+        description: "Design for dynamic navigation menu, smooth scroll effects, and interactive components using vanilla JavaScript"
       },
       {
-        title: "Modern CSS Techniques",
-        description: "Utilizes CSS custom properties for theming, CSS animations for smooth transitions, and modern layout systems for flexible design"
+        title: "Modern Web Technologies",
+        description: "Project planned to utilize HTML5, CSS3, and vanilla JavaScript without framework dependencies"
       },
       {
-        title: "Performance Optimized",
-        description: "Optimized images, minified CSS/JS, lazy loading for images, and efficient DOM manipulation for fast page load times"
+        title: "Content Organization",
+        description: "Concept for organizing technology topics, trends, and tutorials in an easily discoverable structure"
       }
     ],
     challenges: [
       {
-        challenge: "Creating complex layouts that work consistently across different browsers without using CSS frameworks",
-        solution: "Implemented CSS Grid and Flexbox with proper fallbacks, tested across multiple browsers, and used autoprefixer for vendor prefix compatibility"
+        challenge: "Planning a comprehensive technology platform without overwhelming the user experience",
+        solution: "Developed concept focusing on clean, minimalist design with well-organized content hierarchy"
       },
       {
-        challenge: "Maintaining smooth performance with vanilla JavaScript while implementing multiple interactive features",
-        solution: "Used event delegation for efficient event handling, implemented debouncing for scroll events, and optimized DOM queries by caching references"
+        challenge: "Balancing feature richness with simplicity in the initial design phase",
+        solution: "Created a phased approach starting with core features and planning for future enhancements"
       }
     ],
     learnings: [
-      "Deep understanding of CSS layout systems (Flexbox and Grid) and when to use each one",
-      "Importance of semantic HTML for accessibility and SEO optimization",
-      "Performance optimization techniques including lazy loading, code minification, and efficient JavaScript",
-      "Cross-browser compatibility testing and progressive enhancement strategies"
+      "Importance of thorough planning before beginning development",
+      "Understanding project scope and feature prioritization",
+      "Researching modern web technologies and design patterns",
+      "Planning for scalability and future feature additions"
     ],
     futureImprovements: [
-      "Add a blog section with content management capabilities",
-      "Implement dark mode toggle with CSS custom properties",
-      "Add search functionality for finding specific technology topics",
-      "Integrate with a backend API for dynamic content updates"
+      "Begin development with core HTML structure and CSS styling",
+      "Implement responsive navigation and layout systems",
+      "Add JavaScript interactivity for dynamic features",
+      "Create content sections for technology topics and tutorials"
     ],
     relatedProjects: [4, 5],
     githubLink: "https://github.com/JuanAndrda/Techno-Hub",
@@ -195,7 +195,7 @@ export const projects = [
     title: "Technology Website",
     description: "Informational technology website with responsive design and modern UI/UX",
     fullDescription: "A clean and professional informational website focused on technology topics, showcasing modern web design principles and CSS techniques. This project emphasizes responsive design, visual hierarchy, and user experience. Built entirely with HTML, CSS, and JavaScript, it demonstrates the ability to create attractive, functional websites without relying on frameworks or libraries. The website features carefully crafted typography, a cohesive color scheme, and smooth interactions that create an engaging user experience.",
-    image: "/projects/technology-website.png",
+    image: "/images/TechnologyWebsit.jpg",
     technologies: ["HTML", "CSS", "JavaScript"],
     technologiesDetail: {
       "HTML": "Well-structured semantic markup with proper heading hierarchy, meta tags for SEO, and accessibility features including ARIA labels",
@@ -203,7 +203,7 @@ export const projects = [
       "JavaScript": "Interactive features including smooth scrolling, dynamic content display, form validation, and responsive navigation menu"
     },
     category: "Web Development",
-    featured: false,
+    featured: true,
     date: "2024-09",
     status: "Completed",
     problem: "Creating an engaging, professional technology website that stands out visually while maintaining fast load times and excellent user experience across all devices.",
@@ -256,60 +256,59 @@ export const projects = [
     id: 5,
     slug: "web-computing-project",
     title: "Web Computing Project",
-    description: "Web development project demonstrating fundamental web technologies and best practices",
-    fullDescription: "A comprehensive web development project that showcases fundamental skills in HTML structure, CSS styling, and JavaScript interactivity. This project serves as a demonstration of core web development competencies, including proper HTML semantics, modern CSS layout techniques, and practical JavaScript functionality. Built as part of my web computing coursework, it emphasizes clean code, organized structure, and adherence to web standards. The project includes multiple sections demonstrating different aspects of web development from static content presentation to dynamic user interactions.",
-    image: "/projects/web-computing.png",
-    technologies: ["HTML", "CSS", "JavaScript"],
+    description: "Educational web project demonstrating HTML structure and CSS styling fundamentals",
+    fullDescription: "A multi-page educational web project that showcases fundamental HTML and CSS skills developed during web computing coursework. The project consists of multiple HTML pages demonstrating proper document structure, semantic markup, and CSS styling techniques. With a focus on foundational web development concepts, this project emphasizes clean HTML organization, effective use of CSS for visual presentation, and adherence to web standards. The static website demonstrates understanding of core web technologies without relying on JavaScript frameworks or interactivity.",
+    image: "/images/WebComputing.jpg",
+    technologies: ["HTML", "CSS"],
     technologiesDetail: {
-      "HTML": "Semantic HTML5 elements including header, nav, main, section, article, and footer for proper document structure and accessibility",
-      "CSS": "CSS3 styling with layout techniques, custom styling for forms and tables, responsive design with media queries",
-      "JavaScript": "DOM manipulation, event listeners, form handling, dynamic content generation, and basic data validation"
+      "HTML": "Semantic HTML5 markup across 4 pages (Computing activity.html, chelson.html, discription.html, renz.html) with proper document structure and element usage",
+      "CSS": "Multiple stylesheets (ProfileStyle.css, renz.css, style.css, style2.css) for component-specific and page-specific styling with layout and visual design"
     },
     category: "Web Development",
     featured: false,
     date: "2024-08",
     status: "Completed",
-    problem: "Demonstrating comprehensive understanding of fundamental web technologies in a single cohesive project that showcases multiple skills and techniques.",
-    solution: "Created a multi-section website that incorporates various HTML elements, CSS styling techniques, and JavaScript functionality, each section focusing on different aspects of web development.",
+    problem: "Need to demonstrate fundamental understanding of HTML and CSS for web computing coursework through a practical multi-page website project.",
+    solution: "Created a collection of HTML pages with dedicated CSS stylesheets demonstrating proper document structure, semantic markup, and styling capabilities for an educational assignment.",
     features: [
       {
-        title: "Semantic HTML Structure",
-        description: "Proper use of HTML5 semantic elements for better document structure, accessibility, and SEO"
+        title: "Multi-Page Structure",
+        description: "Four distinct HTML pages showcasing different content layouts and organizational patterns"
       },
       {
-        title: "CSS Styling Techniques",
-        description: "Demonstrates various CSS concepts including the box model, positioning, flexbox, and responsive design"
+        title: "Component Styling",
+        description: "Multiple CSS files for different styling needs including profile styles and page-specific designs"
       },
       {
-        title: "JavaScript Interactivity",
-        description: "Interactive elements including form validation, dynamic content updates, and user interaction handling"
+        title: "HTML Fundamentals",
+        description: "Demonstrates proper use of HTML elements, document structure, and semantic markup practices"
       },
       {
-        title: "Web Standards Compliance",
-        description: "Follows W3C standards for HTML and CSS, ensuring cross-browser compatibility and accessibility"
+        title: "CSS Layout Techniques",
+        description: "Application of CSS for visual styling, layout control, and design consistency across pages"
       }
     ],
     challenges: [
       {
-        challenge: "Organizing code in a clean, maintainable way without using build tools or frameworks",
-        solution: "Implemented a clear file structure with separate CSS and JavaScript files, used meaningful class names, and added comprehensive comments"
+        challenge: "Creating multiple pages with consistent styling and structure for a coursework project",
+        solution: "Developed separate CSS files for different components while maintaining visual consistency across all pages"
       },
       {
-        challenge: "Ensuring browser compatibility across different versions and vendors",
-        solution: "Used feature detection, provided fallbacks for older browsers, and tested extensively across Chrome, Firefox, Safari, and Edge"
+        challenge: "Understanding and applying proper HTML document structure and semantic markup",
+        solution: "Studied HTML5 standards and implemented proper element usage across all four pages of the project"
       }
     ],
     learnings: [
-      "Fundamental web development concepts and how HTML, CSS, and JavaScript work together",
-      "Importance of code organization and documentation for maintainability",
-      "Web standards and best practices for accessibility and SEO",
-      "Debugging techniques using browser developer tools"
+      "Fundamental HTML document structure and proper use of semantic elements",
+      "CSS styling techniques for layout and visual design",
+      "Importance of organizing files and stylesheets for multi-page websites",
+      "Web development basics as foundation for more advanced projects"
     ],
     futureImprovements: [
-      "Refactor code using modern JavaScript ES6+ features",
-      "Add a build process with bundling and minification",
-      "Implement a CSS preprocessor like Sass for better style organization",
-      "Add unit tests for JavaScript functionality"
+      "Add JavaScript for interactive features and dynamic content",
+      "Implement responsive design with CSS media queries for mobile devices",
+      "Enhance accessibility with ARIA labels and semantic improvements",
+      "Modernize CSS with Flexbox and Grid layout systems"
     ],
     relatedProjects: [3, 4],
     githubLink: "https://github.com/JuanAndrda/Web-page-Computing-",
@@ -319,60 +318,60 @@ export const projects = [
     id: 6,
     slug: "bank-end-app",
     title: "Bank End App",
-    description: "Backend-focused banking application emphasizing business logic and data management",
-    fullDescription: "Bank End App is a backend-focused application that handles core banking operations with emphasis on robust business logic, data management, and server-side processing. This project demonstrates understanding of backend development concepts including data validation, business rule enforcement, and secure data handling. While the frontend is built with CSS and JavaScript, the focus is on the underlying logic that powers banking operations, including account management, transaction processing, and data persistence. The application showcases ability to separate concerns between presentation and business logic layers.",
-    image: "/projects/bank-end-app.png",
-    technologies: ["CSS", "JavaScript", "Backend"],
+    description: "Web-based banking application using Firebase for backend services and AI-assisted development",
+    fullDescription: "Bank End App is an educational web application that explores backend concepts through Firebase integration and AI-assisted development. Built as a learning project for understanding backend technologies, this application leverages Firebase's Backend-as-a-Service platform for data storage and authentication. The project demonstrates practical application of cloud services, frontend-backend integration, and modern web development practices. With CSS for styling and JavaScript for frontend logic, the app showcases how to build full-stack applications using managed cloud services.",
+    image: "/images/backend.jpg",
+    technologies: ["CSS", "JavaScript", "Firebase"],
     technologiesDetail: {
-      "CSS": "Styled user interface components with focus on form design, data tables, and feedback messages for banking operations",
-      "JavaScript": "Client-side validation and interaction logic, with emphasis on backend integration and data handling",
-      "Backend": "Server-side logic for banking operations including account management, transaction processing, data validation, and business rule enforcement"
+      "CSS": "Styling for user interface components including forms, layouts, and visual design (53.6% of codebase)",
+      "JavaScript": "Frontend application logic, Firebase integration, data handling, and user interactions (41.6% of codebase)",
+      "Firebase": "Backend-as-a-Service platform providing authentication, cloud database storage, and hosting infrastructure"
     },
     category: "Web Development",
     featured: false,
     date: "2024-10",
     status: "Completed",
-    problem: "Creating a banking application that prioritizes backend logic and data integrity while providing a functional frontend interface for testing and demonstration.",
-    solution: "Developed a layered architecture separating presentation from business logic, implemented comprehensive data validation at multiple levels, and created a simple but effective frontend for interacting with backend services.",
+    problem: "Learning backend development concepts and cloud service integration while building a practical banking application without managing server infrastructure.",
+    solution: "Utilized Firebase as a Backend-as-a-Service platform to handle database operations and authentication, allowing focus on application logic and frontend-backend integration patterns.",
     features: [
       {
-        title: "Business Logic Layer",
-        description: "Robust backend logic handling account operations, transaction processing, balance calculations, and business rule validation"
+        title: "Firebase Integration",
+        description: "Cloud backend services including Firestore database for data storage and Firebase Authentication for user management"
       },
       {
-        title: "Data Validation",
-        description: "Multi-layered validation on both client and server side to ensure data integrity and prevent invalid operations"
+        title: "Web Application Interface",
+        description: "CSS-styled frontend with forms, layouts, and user interface components for banking operations"
       },
       {
-        title: "Transaction Management",
-        description: "Secure transaction processing with proper error handling, rollback capabilities, and transaction logging"
+        title: "AI-Assisted Development",
+        description: "Project developed using AI tools to learn backend concepts and best practices in modern web development"
       },
       {
-        title: "User Interface",
-        description: "Functional frontend interface for testing backend operations including forms, data display, and feedback messages"
+        title: "Cloud Deployment",
+        description: "Firebase hosting configuration for deploying the web application to production environment"
       }
     ],
     challenges: [
       {
-        challenge: "Implementing complex business rules and validation logic without a backend framework",
-        solution: "Created a modular validation system with reusable validation functions and clear separation between different types of business rules"
+        challenge: "Learning to integrate Firebase services and understand Backend-as-a-Service architecture for the first time",
+        solution: "Used AI assistance and Firebase documentation to understand authentication flows, database operations, and deployment processes"
       },
       {
-        challenge: "Ensuring data consistency and handling concurrent operations in a JavaScript environment",
-        solution: "Implemented proper state management patterns and used promises to handle asynchronous operations in a predictable manner"
+        challenge: "Structuring a full-stack application with proper separation between frontend and backend logic",
+        solution: "Organized code with clear Firebase service integration points and maintained clean separation of concerns in the application structure"
       }
     ],
     learnings: [
-      "Backend development concepts and the importance of business logic separation from presentation",
-      "Data validation strategies and implementing validation at multiple application layers",
-      "Error handling and providing meaningful feedback for various failure scenarios",
-      "State management in JavaScript applications and handling asynchronous operations"
+      "How to use Firebase for backend services including authentication and cloud database",
+      "Backend-as-a-Service concepts and benefits of managed cloud infrastructure",
+      "Integration patterns between frontend JavaScript and cloud backend services",
+      "Leveraging AI tools for learning new technologies and development best practices"
     ],
     futureImprovements: [
-      "Migrate to a Node.js backend with Express for better server-side capabilities",
-      "Implement RESTful API endpoints for cleaner frontend-backend separation",
-      "Add database integration with PostgreSQL or MongoDB for data persistence",
-      "Implement authentication and authorization for secure user access"
+      "Add more advanced Firebase features like Cloud Functions for server-side logic",
+      "Implement real-time data synchronization using Firebase Realtime Database",
+      "Enhance security with Firebase Security Rules for data access control",
+      "Add more sophisticated banking features like transaction history and account analytics"
     ],
     relatedProjects: [1, 2],
     githubLink: "https://github.com/JuanAndrda/bankendapp",

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
-import { FaCode, FaLaptopCode, FaGithub, FaCoffee, FaMapMarkerAlt } from 'react-icons/fa';
-import { fadeInUp, staggerContainer, slideInLeft, slideInRight } from '../../utils/animations';
+import { FaMapMarkerAlt } from 'react-icons/fa';
+import { fadeInUp, slideInLeft, slideInRight } from '../../utils/animations';
 import Timeline from './Timeline';
 import Stats from './Stats';
 
@@ -37,22 +37,23 @@ const About = () => {
             </h3>
 
             <p className="text-light-secondary text-lg leading-relaxed">
-              I'm a 2nd year Information Technology student at West Visayas State University,
-              based in Leon, Iloilo, Philippines, with a passion for turning ideas into reality through code.
+              I'm a 2nd year Information Technology student at West Visayas State University
+              in Iloilo City. Originally from Leon, Iloilo, Philippines, I have a passion
+              for turning ideas into reality through code.
             </p>
 
             <p className="text-light-secondary text-lg leading-relaxed">
-              My journey in programming began with Java, where I developed a strong
-              foundation in Object-Oriented Programming and Data Structures. I've
-              built multiple banking system projects that demonstrate my understanding
-              of complex software architecture and problem-solving skills.
+              My programming journey started with C++ in my first year, then evolved to Java
+              where I developed a strong foundation in Object-Oriented Programming and Data
+              Structures. I've built multiple banking system projects that demonstrate my
+              understanding of complex software architecture and problem-solving skills.
             </p>
 
             <p className="text-light-secondary text-lg leading-relaxed">
-              Currently, I'm expanding my skillset into web development, learning
-              modern technologies like React, and exploring the exciting world of
-              full-stack development. I'm always eager to learn new technologies
-              and take on challenging projects.
+              Before college, I specialized in Computer studies at STVEP during junior high,
+              then pursued STEM at Iloilo National High School. This solid technical foundation
+              has helped me excel in IT. Currently, I'm expanding into modern web development
+              with React, Tailwind CSS, and full-stack technologies.
             </p>
 
             <div className="flex items-center space-x-2 text-accent-blue">
@@ -61,7 +62,7 @@ const About = () => {
             </div>
           </motion.div>
 
-          {/* Right Column - Image/Illustration Placeholder */}
+          {/* Right Column - Profile Image */}
           <motion.div
             variants={slideInRight}
             initial="hidden"
@@ -70,16 +71,16 @@ const About = () => {
             className="relative"
           >
             <div className="relative aspect-square max-w-md mx-auto">
-              {/* Placeholder for profile image */}
+              {/* Profile Image */}
               <motion.div
                 whileHover={{ scale: 1.05 }}
-                className="w-full h-full rounded-2xl bg-gradient-to-br from-accent-blue to-purple-600 flex items-center justify-center"
+                className="w-full h-full rounded-2xl overflow-hidden shadow-2xl"
               >
-                <div className="text-center">
-                  <FaCode className="text-8xl text-white mb-4 mx-auto" />
-                  <p className="text-white text-xl font-heading">Profile Photo</p>
-                  <p className="text-light-primary text-sm mt-2">Coming Soon</p>
-                </div>
+                <img
+                  src="/images/profile-about.jpg"
+                  alt="Juan Miguel Rashley Andrada"
+                  className="w-full h-full object-cover"
+                />
               </motion.div>
 
               {/* Decorative Elements */}

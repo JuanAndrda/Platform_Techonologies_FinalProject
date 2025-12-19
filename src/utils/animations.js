@@ -49,8 +49,8 @@ export const staggerContainer = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.3
+      staggerChildren: 0.05, // Reduced from 0.1 for faster animation
+      delayChildren: 0.1     // Reduced from 0.3 for faster initial render
     }
   }
 };
@@ -58,13 +58,13 @@ export const staggerContainer = {
 export const scaleIn = {
   hidden: {
     opacity: 0,
-    scale: 0.8
+    scale: 0.95  // Reduced from 0.8 for subtler animation
   },
   visible: {
     opacity: 1,
     scale: 1,
     transition: {
-      duration: 0.5,
+      duration: 0.3,  // Reduced from 0.5 for faster animation
       ease: "easeOut"
     }
   }

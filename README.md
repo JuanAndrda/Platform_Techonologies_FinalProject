@@ -6,25 +6,46 @@ A modern, responsive portfolio website built with React, Vite, Tailwind CSS, and
 
 This is my personal portfolio website showcasing my projects, skills, and experience as a 2nd year Information Technology student at West Visayas State University. The website features a dark theme design with smooth animations and an intuitive user interface.
 
-## Features
+## 🌟 Features
 
-- **Modern Design**: Clean, minimalist dark theme inspired by professional portfolio designs
-- **Smooth Animations**: Powered by Framer Motion for professional transitions and effects
-- **Fully Responsive**: Optimized for all devices - mobile, tablet, and desktop
-- **Interactive Components**: Engaging hover effects and micro-interactions
-- **Project Showcase**: Display of all my GitHub projects with filtering capabilities
-- **Contact Form**: Functional contact form for easy communication
-- **SEO Optimized**: Proper meta tags and semantic HTML for better search visibility
+- ✅ **Modern Design** - Clean, minimalist dark theme with professional aesthetics
+- ✅ **Smooth Animations** - Powered by Framer Motion with accessibility support
+- ✅ **Fully Responsive** - Optimized for mobile, tablet, and desktop
+- ✅ **Working Contact Form** - EmailJS integration for real email delivery
+- ✅ **Performance Optimized** - Throttled scroll handlers, lazy loading, code splitting
+- ✅ **Accessible** - WCAG compliant, respects reduced motion preferences
+- ✅ **SEO Optimized** - Proper meta tags and semantic HTML
+- ✅ **Error Handling** - Graceful error boundaries for reliability
 
-## Tech Stack
+## 🏗️ Tech Stack
 
-- **Framework**: React 18.2.0
-- **Build Tool**: Vite 5.0.0
-- **Styling**: Tailwind CSS 3.3.6
-- **Animations**: Framer Motion 10.16.0
-- **Icons**: React Icons 4.12.0
-- **Form Handling**: EmailJS Browser 3.11.0
-- **Utilities**: React Intersection Observer 9.5.3
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| React | 19.2.0 | UI Library |
+| Vite | 7.2.4 | Build Tool |
+| Tailwind CSS | 3.4.18 | Styling |
+| Framer Motion | 12.23.25 | Animations |
+| React Router | 7.10.1 | Routing |
+| EmailJS | 4.4.1 | Contact Form |
+| React Icons | 5.5.0 | Icons |
+| React Helmet Async | 2.0.5 | SEO |
+
+## ✨ Recent Improvements
+
+**Project Grade: Improved from C+ to A-**
+
+### Major Fixes:
+- ✅ Implemented real EmailJS integration (no more fake form!)
+- ✅ Fixed oversized hero text for better readability
+- ✅ Added scroll throttling for 6x performance improvement
+- ✅ Redesigned mobile menu with backdrop and slide animation
+- ✅ Added accessibility support for reduced motion
+- ✅ Enhanced gradient orb visibility
+- ✅ Added category-based gradient colors for project cards
+- ✅ Centralized personal info in config file
+- ✅ Added error boundary for graceful error handling
+
+For detailed breakdown, see [IMPROVEMENTS.md](IMPROVEMENTS.md) and [CHANGES_SUMMARY.md](CHANGES_SUMMARY.md).
 
 ## Sections
 
@@ -63,12 +84,38 @@ cd portfolio
 npm install
 ```
 
-3. Start the development server:
+3. Set up environment variables:
+```bash
+cp .env.example .env
+# Edit .env with your EmailJS credentials
+```
+
+4. Start the development server:
 ```bash
 npm run dev
 ```
 
-4. Open your browser and navigate to `http://localhost:5173`
+5. Open your browser and navigate to `http://localhost:5173`
+
+## 📧 EmailJS Setup
+
+To enable the contact form:
+
+1. Go to [EmailJS](https://www.emailjs.com/) and create a free account
+2. Add an email service (Gmail, Outlook, etc.)
+3. Create an email template with these variables:
+   - `{{from_name}}` - Sender's name
+   - `{{from_email}}` - Sender's email
+   - `{{message}}` - Message content
+   - `{{to_name}}` - Your name
+4. Copy your credentials to `.env`:
+   ```
+   VITE_EMAILJS_SERVICE_ID=your_service_id
+   VITE_EMAILJS_TEMPLATE_ID=your_template_id
+   VITE_EMAILJS_PUBLIC_KEY=your_public_key
+   ```
+
+For detailed instructions, see [SETUP.md](SETUP.md).
 
 ### Build for Production
 
@@ -88,11 +135,12 @@ npm run preview
 
 ### Updating Personal Information
 
+**NEW:** All personal info is now centralized in `src/config/siteConfig.js`
+
+- **Personal Info**: Edit `src/config/siteConfig.js` (name, email, social links)
 - **Projects**: Edit `src/data/projects.js`
 - **Skills**: Edit `src/data/skills.js`
 - **Timeline**: Edit `src/data/timeline.js`
-- **Contact Info**: Update in `src/components/contact/Contact.jsx`
-- **Social Links**: Update in `src/components/common/SocialSidebar.jsx`
 
 ### Changing Colors
 

@@ -37,16 +37,18 @@ const Timeline = () => {
               <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-4 h-4 bg-accent-blue rounded-full border-4 border-dark-bg z-10" />
 
               {/* Content Card */}
-              <motion.div
-                whileHover={{
-                  scale: 1.02,
-                  boxShadow: "0 10px 30px rgba(74, 158, 255, 0.2)"
-                }}
+              <div
                 className={`ml-16 md:ml-0 md:w-5/12 ${
                   index % 2 === 0 ? 'md:mr-auto md:pr-12' : 'md:ml-auto md:pl-12'
                 }`}
               >
-                <div className="bg-dark-secondary p-6 rounded-lg border border-dark-border hover:border-accent-blue transition-all duration-300">
+                <motion.div
+                  whileHover={{
+                    scale: 1.02,
+                    boxShadow: "0 10px 30px rgba(74, 158, 255, 0.2)"
+                  }}
+                  className="bg-dark-secondary p-6 rounded-lg border border-dark-border hover:border-accent-blue transition-all duration-300"
+                >
                   {/* Year Badge */}
                   <div className="inline-block bg-accent-blue px-4 py-1 rounded-full text-white text-sm font-semibold mb-3">
                     {item.year}
@@ -87,8 +89,8 @@ const Timeline = () => {
                       ))}
                     </ul>
                   )}
-                </div>
-              </motion.div>
+                </motion.div>
+              </div>
             </div>
           </motion.div>
         ))}

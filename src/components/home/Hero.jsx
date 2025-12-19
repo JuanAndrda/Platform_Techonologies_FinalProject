@@ -50,19 +50,19 @@ const Hero = () => {
       <motion.div
         animate={{
           scale: [1, 1.2, 1],
-          opacity: [0.3, 0.5, 0.3]
+          opacity: [0.4, 0.6, 0.4]
         }}
         transition={{
           duration: 8,
           repeat: Infinity,
           ease: "easeInOut"
         }}
-        className="absolute top-20 right-20 w-96 h-96 bg-accent-blue rounded-full filter blur-3xl opacity-20"
+        className="absolute top-20 right-10 md:right-20 w-64 h-64 md:w-96 md:h-96 bg-accent-blue rounded-full filter blur-3xl"
       />
       <motion.div
         animate={{
           scale: [1, 1.3, 1],
-          opacity: [0.2, 0.4, 0.2]
+          opacity: [0.3, 0.5, 0.3]
         }}
         transition={{
           duration: 10,
@@ -70,18 +70,31 @@ const Hero = () => {
           ease: "easeInOut",
           delay: 1
         }}
-        className="absolute bottom-20 left-20 w-96 h-96 bg-purple-600 rounded-full filter blur-3xl opacity-20"
+        className="absolute bottom-20 left-10 md:left-20 w-64 h-64 md:w-96 md:h-96 bg-purple-600 rounded-full filter blur-3xl"
+      />
+      <motion.div
+        animate={{
+          scale: [1.2, 1, 1.2],
+          opacity: [0.2, 0.4, 0.2]
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2
+        }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 md:w-[32rem] md:h-[32rem] bg-cyan-500 rounded-full filter blur-3xl"
       />
 
       {/* Content */}
-      <div className="section-container relative z-10">
+      <div className="section-container relative z-10 flex items-center justify-center min-h-screen py-20">
         <div className="text-center">
           {/* Greeting */}
           <motion.p
             variants={fadeInDown}
             initial="hidden"
             animate="visible"
-            className="text-light-secondary text-lg md:text-xl mb-4 font-body"
+            className="text-light-secondary text-sm md:text-base mb-3 font-body tracking-widest"
           >
             HI, I'M
           </motion.p>
@@ -91,11 +104,11 @@ const Hero = () => {
             variants={fadeInUp}
             initial="hidden"
             animate="visible"
-            className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold text-white uppercase mb-6 tracking-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white uppercase mb-4 tracking-tight leading-tight"
           >
             JUAN MIGUEL
             <br />
-            RASHLEY ANDRADA
+            <span className="text-accent-blue">RASHLEY ANDRADA</span>
           </motion.h1>
 
           {/* Title */}
@@ -104,9 +117,9 @@ const Hero = () => {
             variants={textReveal}
             initial="hidden"
             animate="visible"
-            className="text-xl md:text-2xl lg:text-3xl text-accent-blue font-heading uppercase tracking-wider mb-8"
+            className="text-base md:text-lg lg:text-xl text-light-secondary font-heading uppercase tracking-wide mb-8"
           >
-            2ND YEAR INFORMATION TECHNOLOGY STUDENT
+            Information Technology Student
           </motion.p>
 
           {/* Description */}
@@ -115,11 +128,10 @@ const Hero = () => {
             variants={textReveal}
             initial="hidden"
             animate="visible"
-            className="text-light-secondary text-lg md:text-xl max-w-2xl mx-auto mb-12"
+            className="text-light-secondary text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed"
           >
             Passionate about building innovative solutions with code.
-            <br />
-            Specializing in Java, Web Development & Software Engineering.
+            Specializing in <span className="text-white font-semibold">Java</span>, <span className="text-white font-semibold">Web Development</span> & <span className="text-white font-semibold">Software Engineering</span>.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -128,7 +140,7 @@ const Hero = () => {
             variants={textReveal}
             initial="hidden"
             animate="visible"
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
           >
             <motion.button
               whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(74, 158, 255, 0.5)" }}
@@ -148,23 +160,30 @@ const Hero = () => {
               Contact Me
             </motion.button>
           </motion.div>
-        </div>
 
-        {/* Scroll Indicator */}
-        <motion.div
-          animate={{
-            y: [0, 10, 0]
-          }}
-          transition={{
-            duration: 1.5,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 cursor-pointer"
-          onClick={() => scrollToSection('about')}
-        >
-          <FaChevronDown className="text-light-secondary text-3xl" />
-        </motion.div>
+          {/* Scroll Indicator */}
+          <motion.div
+            custom={5}
+            variants={textReveal}
+            initial="hidden"
+            animate="visible"
+            className="flex justify-center cursor-pointer"
+            onClick={() => scrollToSection('about')}
+          >
+            <motion.div
+              animate={{
+                y: [0, 10, 0]
+              }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              <FaChevronDown className="text-light-secondary text-3xl" />
+            </motion.div>
+          </motion.div>
+        </div>
       </div>
 
       {/* Year Indicator */}

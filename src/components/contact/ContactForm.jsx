@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaPaperPlane } from 'react-icons/fa';
+import emailjs from '@emailjs/browser';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     message: ''
   });
 
@@ -29,7 +31,7 @@ const ContactForm = () => {
     setStatus({ type: '', message: '' });
 
     // Basic validation
-    if (!formData.name || !formData.email || !formData.message) {
+    if (!formData.name || !formData.email || !formData.phone || !formData.message) {
       setStatus({
         type: 'error',
         message: 'Please fill in all fields'
@@ -49,11 +51,35 @@ const ContactForm = () => {
       return;
     }
 
-    // Simulate form submission (replace with EmailJS later)
+    // EmailJS Integration
     try {
-      // TODO: Integrate EmailJS here
-      // For now, just simulate a successful submission
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // Check if EmailJS credentials are configured
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      if (!serviceId || !templateId || !publicKey) {
+        // Fallback: Show message that contact is unavailable
+        setStatus({
+          type: 'error',
+          message: 'Contact form is currently unavailable. Please email me directly at juanandrada@email.com'
+        });
+        setIsSubmitting(false);
+        return;
+      }
+
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          from_phone: formData.phone,
+          message: formData.message,
+          to_name: 'Juan Miguel Rashley Andrada',
+        },
+        publicKey
+      );
 
       setStatus({
         type: 'success',
@@ -64,12 +90,14 @@ const ContactForm = () => {
       setFormData({
         name: '',
         email: '',
+        phone: '',
         message: ''
       });
     } catch (error) {
+      console.error('EmailJS Error:', error);
       setStatus({
         type: 'error',
-        message: 'Failed to send message. Please try again.'
+        message: 'Failed to send message. Please try emailing me directly at juanandrada@email.com'
       });
     } finally {
       setIsSubmitting(false);
@@ -90,7 +118,7 @@ const ContactForm = () => {
           value={formData.name}
           onChange={handleChange}
           className="w-full px-4 py-3 bg-dark-secondary border border-dark-border rounded-md text-white placeholder-light-secondary focus:outline-none focus:border-accent-blue transition-colors duration-300"
-          placeholder="John Doe"
+          placeholder="Juan Miguel Rashley Andrada"
           required
         />
       </div>
@@ -107,7 +135,24 @@ const ContactForm = () => {
           value={formData.email}
           onChange={handleChange}
           className="w-full px-4 py-3 bg-dark-secondary border border-dark-border rounded-md text-white placeholder-light-secondary focus:outline-none focus:border-accent-blue transition-colors duration-300"
-          placeholder="john@example.com"
+          placeholder="juanandrada@example.com"
+          required
+        />
+      </div>
+
+      {/* Phone Input */}
+      <div>
+        <label htmlFor="phone" className="block text-light-secondary text-sm font-medium mb-2">
+          Phone Number
+        </label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          value={formData.phone}
+          onChange={handleChange}
+          className="w-full px-4 py-3 bg-dark-secondary border border-dark-border rounded-md text-white placeholder-light-secondary focus:outline-none focus:border-accent-blue transition-colors duration-300"
+          placeholder="09081719408"
           required
         />
       </div>
